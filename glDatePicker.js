@@ -30,6 +30,7 @@
 	// Default options
 	$.fn.glDatePicker.defaults =
 	{
+        nowText: 'Now',
 		// Style to use for the calendar.  This name must match the name used in
 		// the stylesheet, using the class naming convention "gldp-cssName".
 		cssName: 'default',
@@ -308,6 +309,11 @@
 
 				// Create cell width based on el size
 				var containerWidth = el.outerWidth();
+
+                                if(typeof options.width !== 'undefined'){
+                                    containerWidth = options.width;
+                                }
+
 				var containerHeight = containerWidth;
 
 				// Create cell size based on container size
@@ -605,7 +611,7 @@
 								// Handle today or selected dates
 								if(firstDateMonth != cellDateVal.month) { cellClass += ' outday'; }
 								if(todayTime == cellDateTime) { cellClass = 'today'; cellZIndex += 50; }
-								if(options.selectedDate._time() == cellDateTime) { cellClass = 'selected'; cellZIndex += 51; }
+								if(options.selectedDate._time() == cellDateTime) { cellClass += ' selected'; cellZIndex += 51; }
 
 								// Handle special dates
 								if(options.specialDates) {
@@ -728,6 +734,16 @@
 										toggleYearMonthSelect(true);
 									});
 
+                                var nowText = $('<span/>')
+                                        .html(options.nowText)
+                                        .addClass('btn')
+                                        .mousedown(function() { return false; })
+                                        .click(function(e) {
+                                                yearSelect.val(options.todayDate.getFullYear());
+                                                monthSelect.val(options.todayDate.getMonth());
+                                                onYearMonthSelect();
+                                        });
+
 				// Populate month select
 				$.each(monthNames, function(i, v) {
 					if(options.allowMonthSelect && selectableMonths._indexOf(i) != -1) {
@@ -750,7 +766,8 @@
 										.append(monthText)
 										.append(monthSelect)
 										.append(yearText)
-										.append(yearSelect);
+										.append(yearSelect)
+                                                                                .append(nowText);
 
 				// Add to title
 				titleCell.children().remove();
