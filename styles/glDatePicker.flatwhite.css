@@ -23,7 +23,7 @@
 .gldp-flatwhite .border {
     border-style: solid;
     border-width: 0;
-    border-color: #fff;
+    border-color: #999;
 }
 
 /* Month/Year text and select */
@@ -37,6 +37,12 @@
 /* Month/Year text */
 .gldp-flatwhite .monyear span {
     margin: 0 5px 0 5px;
+}
+
+.gldp-flatwhite .monyear .btn {
+    font-weight:normal;
+    color:blue;
+    font-size:14px;
 }
 
 /* Prev/Next arrows */
@@ -61,7 +67,7 @@
 .gldp-flatwhite .dow {
     color: #222;
     font-weight: bold;
-    cursor: wait !important;
+    cursor: default !important;
     background: #eee;
 }
 
@@ -94,14 +100,14 @@
 .gldp-flatwhite .fri:hover,
 .gldp-flatwhite .sat:hover,
 .gldp-flatwhite .sun:hover {
-    background: #eee;
+    background: #888;
 }
 
 /* Non-Selectable days */
 .gldp-flatwhite .noday {
     color: #bbb;
     font-weight: normal;
-    cursor: wait !important;
+    cursor: default !important;
     background: #ddd;
 }
 
@@ -110,15 +116,18 @@
     color: #fff;
     font-weight: bold;
     border-color: #888;
-    background: #aaa;
+    background: #222;
 }
 
 /* Today */
 .gldp-flatwhite .today {
-    color: #fff;
+    color: #f00;
     font-weight: bold;
-    border-color: #000;
-    background: #222;
+    border-color: #f00;
+}
+
+.gldp-flatwhite .today:hover {
+    background: #888;
 }
 
 /* Special */
