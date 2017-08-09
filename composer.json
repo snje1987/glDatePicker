@@ -1,0 +1,19 @@
+{
+    "name": "snje1987/gldatepicker",
+    "type": "library",
+    "description": "glDatePicker",
+    "keywords": ["glDatePicker"],
+    "homepage": "https://github.com/snje1987/gldatepicker",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yang Ming",
+            "email": "root@snje.org",
+            "role": "Developer"
+        },
+        {
+            "name": "Gautam Lad",
+            "role": "Developer"
+        }
+    ]
+}
